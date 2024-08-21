@@ -1,11 +1,50 @@
-<!--
- Copyright (c) 2014, 2024, Oracle and/or its affiliates.
- Licensed under The Universal Permissive License (UPL), Version 1.0
- as shown at https://oss.oracle.com/licenses/upl/
- -->
 <div class="oj-hybrid-padding">
-  <h1>Dashboard Content Area</h1>
-  <div>
-      To change the content of this section, you will make edits to the dashboard.html file located in the /ts/views folder.
-  </div>
+  <oj-c-form-layout
+    id="formLayoutOptions"
+    max-columns="1"
+    direction="row"
+    user-assistance-density="compact">
+    <h4>Name</h4>
+    <oj-c-input-text
+      id="text-input"
+      raw-value="{{username}}"
+      label-hint="Enter Username"
+      label-edge="inside"></oj-c-input-text>
+    <h4>Password</h4>
+    <oj-c-input-password label-hint="Enter Password"></oj-c-input-password>
+    <h4>Gender</h4>
+    <div id="radioset-container">
+      <oj-c-radioset
+        id="radiosetBasicDemoId"
+        label-edge="inside"
+        options="[[colorOptions]]"
+        value="{{currentColor}}">
+      </oj-c-radioset>
+      <h4>Date</h4>
+      <oj-input-date-time
+                value="{{value}}"
+                converter="[[timeFullConverter]]"
+                label-hint="Time with seconds"></oj-input-date-time>
+      <div>
+      <h4>Graduation Level</h4>
+      <oj-c-select-single
+                id="f12"
+                label-hint="Select your degree"
+                data="[[browsersDP]]"
+                item-text="label"></oj-c-select-single>
+      </div>
+      <oj-c-checkbox id="enabledCheckboxOn" value="false">Remember me</oj-c-checkbox>
+      <div>
+        <oj-c-button
+        id="save"
+        chroming="outlined"
+        label="Save Draft">
+      </oj-c-button>
+      <oj-progress-bar
+              id="progressBar"
+              aria-label="basic progress bar"
+              value="[[indeterminate().length > 0 ? -1 : progressValue]]"></oj-progress-bar>
+      </div>
+    </div>
+  </oj-c-form-layout>
 </div>
